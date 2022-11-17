@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/produit")
+@RequestMapping("/categorie/produit")
 public class CategorieProduitController extends BaseController<CategorieProduit, Long> {
 
 
