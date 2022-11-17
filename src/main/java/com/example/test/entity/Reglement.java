@@ -1,5 +1,6 @@
 package com.example.test.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
@@ -26,5 +27,6 @@ public class Reglement {
     private Date dateReglement;
 
     @ManyToOne
+    @JsonIgnore
     private Facture facture;
 }

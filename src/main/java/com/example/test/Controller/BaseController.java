@@ -9,50 +9,49 @@ import java.util.List;
 
 public class BaseController<T, id> {
 
-	
-	@Autowired
-	BaseServiceInterface<T, id> baseService;
-	
-	 @GetMapping("/all")
-	    public List<T> getAll(){
 
-	        return baseService.retrieveAll();
+    @Autowired
+    BaseServiceInterface<T, id> baseService;
 
-	    }
+    @GetMapping("/all")
+    public List<T> getAll() {
 
+        return baseService.retrieveAll();
 
-	    @PostMapping("/add")
-	    public ResponseEntity<T> add(@RequestBody T e){
-
-	        return ResponseEntity.ok(this.baseService.add(e));
+    }
 
 
-	    }
+    @PostMapping("/add")
+    public ResponseEntity<T> add(@RequestBody T e) {
 
-	   // @PutMapping(path ="{id}")
-	   @PutMapping("/update/{id}")
-	    public ResponseEntity<T>update(@RequestBody T e){
-
-	        return ResponseEntity.ok(this.baseService.update(e));
+        return ResponseEntity.ok(this.baseService.add(e));
 
 
-	    }
+    }
+
+    // @PutMapping(path ="{id}")
+    @PutMapping("/update/{id}")
+    public ResponseEntity<T> update(@RequestBody T e) {
+
+        return ResponseEntity.ok(this.baseService.update(e));
 
 
-
-	    @GetMapping("/{id}")
-	    public T retrieveById(@PathVariable("id") id id) {
-
-	        return this.baseService.retrieve(id);
-
-	    }
+    }
 
 
-	    @DeleteMapping("/delete/{id}")
-	    public void remove(@PathVariable("id") id id) {
+    @GetMapping("/{id}")
+    public T retrieveById(@PathVariable("id") id id) {
 
-	        this.baseService.remove(id);
+        return this.baseService.retrieve(id);
 
-	    }
-	
+    }
+
+
+    @DeleteMapping("/delete/{id}")
+    public void remove(@PathVariable("id") id id) {
+
+        this.baseService.remove(id);
+
+    }
+
 }

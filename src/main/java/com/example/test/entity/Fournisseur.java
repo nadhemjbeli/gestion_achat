@@ -1,5 +1,6 @@
 package com.example.test.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
@@ -28,8 +29,10 @@ public class Fournisseur {
     private DetailFournisseur detaiFournisseur;
 
     @ManyToMany(mappedBy ="fournisseurs")
+    @JsonIgnore
     private Set<SecteurActivite> secteurActivites = new HashSet<>();
 
     @OneToMany(mappedBy="fournisseur")
+    @JsonIgnore
     List<Facture> factures ;
 }
