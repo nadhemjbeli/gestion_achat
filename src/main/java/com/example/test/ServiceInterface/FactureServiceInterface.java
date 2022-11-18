@@ -5,10 +5,14 @@ import com.example.test.entity.Facture;
 import com.example.test.entity.Fournisseur;
 import com.example.test.entity.Produit;
 
+import java.util.List;
+
 public interface FactureServiceInterface extends BaseServiceInterface<Facture, Long>{
 
-    public Facture addFacture(Facture facture, Long idfournisseur);
+    Facture addFacture(Facture facture, Long idfournisseur);
 
-    public void annulerFacture(Long id);
+    void annulerFacture(Long id);
+
+    List<Facture> getFacturesByFournisseur(Long idfournisseur);
 
 }

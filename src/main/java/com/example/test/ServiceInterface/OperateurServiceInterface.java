@@ -6,6 +6,6 @@ import com.example.test.entity.Operateur;
 
 public interface OperateurServiceInterface extends BaseServiceInterface<Operateur, Long>{
 
-
+    void assignOperateurToFacture(Long idOperateur, Long idFacture);
 
 }

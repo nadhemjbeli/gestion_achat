@@ -1,5 +1,6 @@
 package com.example.test.Controller;
 
+import com.example.test.ServiceImpl.ProduittServiceImp;
 import com.example.test.ServiceImpl.StockServiceImp;
 import com.example.test.entity.Produit;
 import com.example.test.entity.Stock;
@@ -12,5 +13,13 @@ import java.util.List;
 @RequestMapping("/produit")
 public class ProduitController extends BaseController<Produit, Long> {
 
+    @Autowired
+    ProduittServiceImp produitServiceImp;;
+
+    @GetMapping("/{idProduit}/{idStock}")
+    public Produit addProduitToStock(@PathVariable(value = "idProduit") long idProduit,@PathVariable(value = "idStock") long idStock){
+        produitServiceImp.assignProduitToStock(idProduit,idStock);
+        return produitServiceImp.retrieve(idProduit)  ;
+    }
 
 }

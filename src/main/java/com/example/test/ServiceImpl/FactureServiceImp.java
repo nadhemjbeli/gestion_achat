@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Service
@@ -28,6 +29,12 @@ public class FactureServiceImp extends BaseServiceImp<Facture,Long> implements F
 
     @Autowired
     ProduittServiceImp produittServiceImp ;
+
+    @Override
+    public List<Facture> getFacturesByFournisseur(Long idFournisseur) {
+        Fournisseur fournisseur = fournisseurServiceImp.retrieve(idFournisseur);
+        return factureRepositrory.getFacturesByFournisseur(fournisseur) ;
+    }
 
     @Override
     public Facture addFacture(Facture facture, Long idfournisseur) {
