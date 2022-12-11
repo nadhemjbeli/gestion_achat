@@ -39,4 +39,15 @@ public class StockServiceImp implements StockServiceInterface {
         this.jpaRepo.deleteById(id);
     }
 
+
+    @Override
+    public String retrieveStatusStock() {
+
+        List<Stock> stocks = jpaRepo.retrieveStatusStock();
+        String message = "les stock avertis:\n";
+        for(Stock stock: stocks){
+            message += stock.getLibelleStock()+"\n";
+        }
+        return message;
+    }
 }

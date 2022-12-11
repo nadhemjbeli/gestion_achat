@@ -5,6 +5,7 @@ import com.example.test.entity.Stock;
 
 public interface StockServiceInterface extends BaseServiceInterface<Stock, Long>{
 
+    String retrieveStatusStock();
 
 
 }
